@@ -21,7 +21,7 @@ export function isJSONArray(value: any): value is IJSONArray {
 }
 
 export function isJSONObject(value: any): value is IJSONObject {
-  return value !== null && typeof value === "object";
+  return value != null && typeof value === "object";
 }
 
 export const camelCaseJSON = (json: IJSON): IJSON => {

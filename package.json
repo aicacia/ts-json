@@ -1,10 +1,10 @@
 {
-  "name": "@aicacia/json",
+  "name": "@stembord/json",
   "version": "0.1.0",
   "description": "JSON types and helper functions",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/aicacia/ts-json.git"
+    "url": "https://gitlab.com/stembord/ts-json.git"
   },
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -13,8 +13,7 @@
     "build": "tsc",
     "prepublishOnly": "npm run clean && npm run build",
     "test": "ts-node node_modules/tape/bin/tape ./tests/**/*.test.ts | tap-spec",
-    "clean": "npm run clean_build",
-    "clean_build": "rm -rf ./src",
+    "clean": "rm -rf ./src",
     "format.ts": "prettier-tslint fix '**/*.{ts,tsx}'",
     "format.js": "prettier --write '**/*.{js,jsx,json}' --ignore-path .gitignore",
     "format": "npm run format.ts && npm run format.js",
@@ -35,7 +34,7 @@
     "ts-node": "^8.0.2",
     "tslint": "^5.13.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.4.4"
   },
   "dependencies": {
     "camel-case": "^3.0.0",
