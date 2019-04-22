@@ -4,7 +4,7 @@
   "description": "JSON types and helper functions",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/stembord/ts-json.git"
+    "url": "https://gitlab.com/stembord/libs/ts-json.git"
   },
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
