@@ -1,8 +1,8 @@
 import camelCase = require("camel-case");
 import snakeCase = require("snake-case");
-import { isArray, isNull, isNumber, isString } from "util";
+import { isArray, isBoolean, isNull, isNumber, isString } from "util";
 
-export type IJSON = null | number | string | IJSONArray | IJSONObject;
+export type IJSON = null | number | string | boolean | IJSONArray | IJSONObject;
 export interface IJSONArray extends Array<IJSON> {}
 export interface IJSONObject extends Record<string, IJSON> {}
 
@@ -11,6 +11,7 @@ export function isJSON(value: any): value is IJSON {
     isNull(value) ||
     isString(value) ||
     isNumber(value) ||
+    isBoolean(value) ||
     isJSONArray(value) ||
     isJSONObject(value)
   );
