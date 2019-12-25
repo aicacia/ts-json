@@ -5,6 +5,7 @@ export {
   isJSON,
   isJSONArray,
   isJSONObject,
+  transformKeysJSON,
   camelCaseJSON,
   snakeCaseJSON,
   underscoreJSON
