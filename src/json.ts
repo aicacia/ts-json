@@ -1,5 +1,5 @@
-import camelCase = require("camel-case");
-import snakeCase = require("snake-case");
+import { camelCase } from "camel-case";
+import { snakeCase } from "snake-case";
 import { isArray, isBoolean, isNull, isNumber, isString } from "util";
 
 export type IJSON = null | number | string | boolean | IJSONArray | IJSONObject;

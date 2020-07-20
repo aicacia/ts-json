@@ -1,5 +1,5 @@
 import tape = require("tape");
-import { camelCaseJSON, snakeCaseJSON } from "../lib";
+import { camelCaseJSON, snakeCaseJSON } from ".";
 import { isJSON } from "./json";
 
 tape("isJSON", (assert: tape.Test) => {
