@@ -1,24 +1,24 @@
 import { camelCase } from "camel-case";
 import { snakeCase } from "snake-case";
-import { isArray, isBoolean, isNull, isNumber, isString } from "util";
 
 export type IJSON = null | number | string | boolean | IJSONArray | IJSONObject;
 export interface IJSONArray extends Array<IJSON> {}
 export interface IJSONObject extends Record<string, IJSON> {}
 
 export function isJSON(value: any): value is IJSON {
+  const type = typeof value;
   return (
-    isNull(value) ||
-    isString(value) ||
-    isNumber(value) ||
-    isBoolean(value) ||
+    value === null ||
+    type === "string" ||
+    type === "number" ||
+    type === "boolean" ||
     isJSONArray(value) ||
     isJSONObject(value)
   );
 }
 
 export function isJSONArray(value: any): value is IJSONArray {
-  return isArray(value);
+  return Array.isArray(value);
 }
 
 export function isJSONObject(value: any): value is IJSONObject {
@@ -30,7 +30,7 @@ export const transformKeysJSON = (
   json: IJSON
 ): IJSON => {
   if (isJSONArray(json)) {
-    return json.map(value => transformKeysJSON(transformKey, value));
+    return json.map((value) => transformKeysJSON(transformKey, value));
   } else if (isJSONObject(json)) {
     return Object.keys(json).reduce((acc, key) => {
       acc[transformKey(key)] = transformKeysJSON(transformKey, json[key]);
