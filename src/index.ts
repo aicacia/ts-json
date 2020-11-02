@@ -8,5 +8,5 @@ export {
   transformKeysJSON,
   camelCaseJSON,
   snakeCaseJSON,
-  underscoreJSON
+  underscoreJSON,
 } from "./json";

@@ -1,6 +1,6 @@
 import tape = require("tape");
 import { camelCaseJSON, snakeCaseJSON } from ".";
-import { isJSON } from "./json";
+import { isJSON } from ".";
 
 tape("isJSON", (assert: tape.Test) => {
   assert.deepEquals(isJSON([]), true);
@@ -19,23 +19,23 @@ tape("snakeCaseJSON", (assert: tape.Test) => {
       snakeCase: "value",
       snakeCaseArray: [
         {
-          snakeCase: "value"
-        }
+          snakeCase: "value",
+        },
       ],
       snakeCaseObject: {
-        snakeCase: "value"
-      }
+        snakeCase: "value",
+      },
     }),
     {
       snake_case: "value",
       snake_case_array: [
         {
-          snake_case: "value"
-        }
+          snake_case: "value",
+        },
       ],
       snake_case_object: {
-        snake_case: "value"
-      }
+        snake_case: "value",
+      },
     }
   );
   assert.end();
@@ -47,23 +47,23 @@ tape("camelCaseJSON", (assert: tape.Test) => {
       camel_case: "value",
       camel_case_array: [
         {
-          camel_case: "value"
-        }
+          camel_case: "value",
+        },
       ],
       camel_case_object: {
-        camel_case: "value"
-      }
+        camel_case: "value",
+      },
     }),
     {
       camelCase: "value",
       camelCaseArray: [
         {
-          camelCase: "value"
-        }
+          camelCase: "value",
+        },
       ],
       camelCaseObject: {
-        camelCase: "value"
-      }
+        camelCase: "value",
+      },
     }
   );
   assert.end();

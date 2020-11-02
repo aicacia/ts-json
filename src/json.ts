@@ -25,26 +25,28 @@ export function isJSONObject(value: any): value is IJSONObject {
   return value != null && typeof value === "object";
 }
 
-export const transformKeysJSON = (
-  transformKey: (key: string) => string,
-  json: IJSON
-): IJSON => {
+export function transformKeysJSON(
+  json: IJSON,
+  transformKey: (key: string) => string
+): IJSON {
   if (isJSONArray(json)) {
-    return json.map((value) => transformKeysJSON(transformKey, value));
+    return json.map((value) => transformKeysJSON(value, transformKey));
   } else if (isJSONObject(json)) {
-    return Object.keys(json).reduce((acc, key) => {
-      acc[transformKey(key)] = transformKeysJSON(transformKey, json[key]);
+    return Object.keys(json).reduce<IJSONObject>((acc, key) => {
+      acc[transformKey(key)] = transformKeysJSON(json[key], transformKey);
       return acc;
-    }, {} as IJSONObject);
+    }, {});
   } else {
     return json;
   }
-};
+}
 
-export const camelCaseJSON = (json: IJSON): IJSON =>
-  transformKeysJSON(camelCase, json);
+export function camelCaseJSON(json: IJSON): IJSON {
+  return transformKeysJSON(json, camelCase);
+}
 
-export const snakeCaseJSON = (json: IJSON): IJSON =>
-  transformKeysJSON(snakeCase, json);
+export function snakeCaseJSON(json: IJSON): IJSON {
+  return transformKeysJSON(json, snakeCase);
+}
 
 export const underscoreJSON = snakeCaseJSON;
