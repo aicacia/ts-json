@@ -7,9 +7,12 @@
     "declaration": true,
     "outDir": "lib",
     "strict": true,
-    "downlevelIteration": true,
     "lib": ["esnext"]
   },
   "include": ["src"],
-  "exclude": ["src/**/*.test.*"]
+  "exclude": ["src/**/*.test.*", "src/**/*.benchmark.*"],
+  "typedocOptions": {
+    "mode": "library",
+    "out": "docs"
+  }
 }

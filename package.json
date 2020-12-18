@@ -1,6 +1,6 @@
 {
   "name": "@aicacia/json",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "JSON types and helper functions",
   "repository": {
     "type": "git",
