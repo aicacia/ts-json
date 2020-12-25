@@ -1,6 +1,6 @@
 {
   "name": "@aicacia/json",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "JSON types and helper functions",
   "repository": {
     "type": "git",
@@ -24,28 +24,28 @@
   "license": "(MIT OR Apache-2.0)",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "@types/tape": "^4.13.0",
-    "@typescript-eslint/eslint-plugin": "^4.6.0",
-    "@typescript-eslint/parser": "^4.6.0",
-    "eslint": "^7.12.1",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "nyc": "^15.1.0",
-    "prettier": "^2.1.2",
-    "tap-nyc": "^1.0.3",
-    "tap-spec": "^5.0.0",
-    "tape": "^5.0.1",
-    "ts-node": "^9.0.0",
-    "tslib": "^2.0.3",
-    "typedoc": "^0.19.2",
-    "typescript": "^4.0.5"
+    "@types/tape": "4",
+    "@typescript-eslint/eslint-plugin": "4",
+    "@typescript-eslint/parser": "4",
+    "eslint": "7",
+    "eslint-config-prettier": "7",
+    "eslint-plugin-prettier": "3",
+    "nyc": "15",
+    "prettier": "2",
+    "tap-nyc": "1",
+    "tap-spec": "5",
+    "tape": "5",
+    "ts-node": "9",
+    "tslib": "2",
+    "typedoc": "beta",
+    "typescript": "4"
   },
   "dependencies": {
-    "camel-case": "^4.1.1",
-    "snake-case": "^3.0.3"
+    "camel-case": "4",
+    "snake-case": "3"
   },
   "peerDependencies": {
-    "tslib": "^2.0.3"
+    "tslib": "2"
   },
   "nyc": {
     "include": [
