@@ -1,12 +1,2 @@
-export {
-  IJSON,
-  IJSONArray,
-  IJSONObject,
-  isJSON,
-  isJSONArray,
-  isJSONObject,
-  transformKeysJSON,
-  camelCaseJSON,
-  snakeCaseJSON,
-  underscoreJSON,
-} from "./json";
+export type { IJSON, IJSONArray, IJSONObject } from "./json";
+export { isJSON, isJSONArray, isJSONObject, transformKeysJSON } from "./json";

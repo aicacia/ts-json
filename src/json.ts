@@ -1,9 +1,6 @@
-import { camelCase } from "camel-case";
-import { snakeCase } from "snake-case";
-
 export type IJSON = null | number | string | boolean | IJSONArray | IJSONObject;
-export interface IJSONArray extends Array<IJSON> {}
-export interface IJSONObject extends Record<string, IJSON> {}
+export type IJSONArray = IJSON[];
+export type IJSONObject = { [key: string]: IJSON };
 
 export function isJSON(value: any): value is IJSON {
   const type = typeof value;
@@ -40,13 +37,3 @@ export function transformKeysJSON(
     return json;
   }
 }
-
-export function camelCaseJSON(json: IJSON): IJSON {
-  return transformKeysJSON(json, camelCase);
-}
-
-export function snakeCaseJSON(json: IJSON): IJSON {
-  return transformKeysJSON(json, snakeCase);
-}
-
-export const underscoreJSON = snakeCaseJSON;

@@ -1,6 +1,5 @@
 import tape = require("tape");
-import { camelCaseJSON, snakeCaseJSON } from ".";
-import { isJSON } from ".";
+import { transformKeysJSON, isJSON } from ".";
 
 tape("isJSON", (assert: tape.Test) => {
   assert.deepEquals(isJSON([]), true);
@@ -13,19 +12,29 @@ tape("isJSON", (assert: tape.Test) => {
   assert.end();
 });
 
-tape("snakeCaseJSON", (assert: tape.Test) => {
+tape("transformKeysJSON", (assert: tape.Test) => {
   assert.deepEquals(
-    snakeCaseJSON({
-      snakeCase: "value",
-      snakeCaseArray: [
-        {
+    transformKeysJSON(
+      {
+        snakeCase: "value",
+        snakeCaseArray: [
+          {
+            snakeCase: "value",
+          },
+        ],
+        snakeCaseObject: {
           snakeCase: "value",
         },
-      ],
-      snakeCaseObject: {
-        snakeCase: "value",
       },
-    }),
+      (key: string) =>
+        (
+          key.match(
+            /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
+          ) || []
+        )
+          .join("_")
+          .toLowerCase()
+    ),
     {
       snake_case: "value",
       snake_case_array: [
@@ -35,34 +44,6 @@ tape("snakeCaseJSON", (assert: tape.Test) => {
       ],
       snake_case_object: {
         snake_case: "value",
-      },
-    }
-  );
-  assert.end();
-});
-
-tape("camelCaseJSON", (assert: tape.Test) => {
-  assert.deepEquals(
-    camelCaseJSON({
-      camel_case: "value",
-      camel_case_array: [
-        {
-          camel_case: "value",
-        },
-      ],
-      camel_case_object: {
-        camel_case: "value",
-      },
-    }),
-    {
-      camelCase: "value",
-      camelCaseArray: [
-        {
-          camelCase: "value",
-        },
-      ],
-      camelCaseObject: {
-        camelCase: "value",
       },
     }
   );

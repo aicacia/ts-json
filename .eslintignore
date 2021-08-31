@@ -3,5 +3,6 @@
 .vscode/
 coverage/
 docs/
-lib/
+cjs/
+esm/
 node_modules/
