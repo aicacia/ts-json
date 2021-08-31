@@ -39,8 +39,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -62,13 +60,180 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Modules</h3>
+							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-module"><a href="modules/index.html" class="tsd-kind-icon">index</a></li>
-								<li class="tsd-kind-module"><a href="modules/json.html" class="tsd-kind-icon">json</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#IJSON" class="tsd-kind-icon">IJSON</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#IJSONArray" class="tsd-kind-icon">IJSONArray</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#IJSONObject" class="tsd-kind-icon">IJSONObject</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="modules.html#isJSON" class="tsd-kind-icon">isJSON</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#isJSONArray" class="tsd-kind-icon">isJSONArray</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#isJSONObject" class="tsd-kind-icon">isJSONObject</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#transformKeysJSON" class="tsd-kind-icon">transform<wbr>KeysJSON</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="IJSON" class="tsd-anchor"></a>
+					<h3>IJSON</h3>
+					<div class="tsd-signature tsd-kind-icon">IJSON<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><a href="modules.html#IJSONArray" class="tsd-signature-type" data-tsd-kind="Type alias">IJSONArray</a><span class="tsd-signature-symbol"> | </span><a href="modules.html#IJSONObject" class="tsd-signature-type" data-tsd-kind="Type alias">IJSONObject</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aicacia/ts-json/blob/2bb188a/src/json.ts#L1">json.ts:1</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="IJSONArray" class="tsd-anchor"></a>
+					<h3>IJSONArray</h3>
+					<div class="tsd-signature tsd-kind-icon">IJSONArray<span class="tsd-signature-symbol">:</span> <a href="modules.html#IJSON" class="tsd-signature-type" data-tsd-kind="Type alias">IJSON</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aicacia/ts-json/blob/2bb188a/src/json.ts#L2">json.ts:2</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="IJSONObject" class="tsd-anchor"></a>
+					<h3>IJSONObject</h3>
+					<div class="tsd-signature tsd-kind-icon">IJSONObject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aicacia/ts-json/blob/2bb188a/src/json.ts#L3">json.ts:3</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="modules.html#IJSON" class="tsd-signature-type" data-tsd-kind="Type alias">IJSON</a></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isJSON" class="tsd-anchor"></a>
+					<h3>isJSON</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">isJSON<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">value</span><span class="tsd-signature-symbol"> is </span><a href="modules.html#IJSON" class="tsd-signature-type" data-tsd-kind="Type alias">IJSON</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-json/blob/2bb188a/src/json.ts#L5">json.ts:5</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">value</span><span class="tsd-signature-symbol"> is </span><a href="modules.html#IJSON" class="tsd-signature-type" data-tsd-kind="Type alias">IJSON</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isJSONArray" class="tsd-anchor"></a>
+					<h3>isJSONArray</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">isJSONArray<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">value</span><span class="tsd-signature-symbol"> is </span><a href="modules.html#IJSONArray" class="tsd-signature-type" data-tsd-kind="Type alias">IJSONArray</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-json/blob/2bb188a/src/json.ts#L17">json.ts:17</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">value</span><span class="tsd-signature-symbol"> is </span><a href="modules.html#IJSONArray" class="tsd-signature-type" data-tsd-kind="Type alias">IJSONArray</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isJSONObject" class="tsd-anchor"></a>
+					<h3>isJSONObject</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">isJSONObject<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">value</span><span class="tsd-signature-symbol"> is </span><a href="modules.html#IJSONObject" class="tsd-signature-type" data-tsd-kind="Type alias">IJSONObject</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-json/blob/2bb188a/src/json.ts#L21">json.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">value</span><span class="tsd-signature-symbol"> is </span><a href="modules.html#IJSONObject" class="tsd-signature-type" data-tsd-kind="Type alias">IJSONObject</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="transformKeysJSON" class="tsd-anchor"></a>
+					<h3>transform<wbr>KeysJSON</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">transform<wbr>KeysJSON<span class="tsd-signature-symbol">(</span>json<span class="tsd-signature-symbol">: </span><a href="modules.html#IJSON" class="tsd-signature-type" data-tsd-kind="Type alias">IJSON</a>, transformKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modules.html#IJSON" class="tsd-signature-type" data-tsd-kind="Type alias">IJSON</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-json/blob/2bb188a/src/json.ts#L25">json.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>json: <a href="modules.html#IJSON" class="tsd-signature-type" data-tsd-kind="Type alias">IJSON</a></h5>
+								</li>
+								<li>
+									<h5>transformKey: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>key: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="modules.html#IJSON" class="tsd-signature-type" data-tsd-kind="Type alias">IJSON</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -78,16 +243,31 @@
 					<li class="current ">
 						<a href="modules.html">Exports</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/index.html">index</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/json.html">json</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#IJSON" class="tsd-kind-icon">IJSON</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#IJSONArray" class="tsd-kind-icon">IJSONArray</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#IJSONObject" class="tsd-kind-icon">IJSONObject</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isJSON" class="tsd-kind-icon">isJSON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isJSONArray" class="tsd-kind-icon">isJSONArray</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isJSONObject" class="tsd-kind-icon">isJSONObject</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformKeysJSON" class="tsd-kind-icon">transform<wbr>KeysJSON</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -97,13 +277,6 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
 		</div>
 	</div>
 </footer>
