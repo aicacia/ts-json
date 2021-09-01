@@ -7,6 +7,7 @@
     "moduleResolution": "Node",
     "declaration": true,
     "outDir": "cjs",
+    "declarationDir": "types",
     "strict": true,
     "downlevelIteration": true,
     "lib": ["ESNext"]
