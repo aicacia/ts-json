@@ -1,5 +1,5 @@
 import * as tape from "tape";
-import { transformKeysJSON, isJSON } from ".";
+import { transformKeysJSON, isJSON, IAsJSON } from ".";
 
 tape("isJSON", (assert: tape.Test) => {
   assert.deepEquals(isJSON([]), true);
@@ -47,5 +47,55 @@ tape("transformKeysJSON", (assert: tape.Test) => {
       },
     }
   );
+  assert.end();
+});
+
+tape("as json", (assert: tape.Test) => {
+  class Entity {
+    id: number;
+    name: string;
+    children: Entity[];
+    createdAt: Date;
+  }
+
+  type IEntityJSON = IAsJSON<Entity>;
+
+  function fromJSON(json: IEntityJSON): Entity {
+    return {
+      id: json.id,
+      name: json.name,
+      children: json.children.map(fromJSON),
+      createdAt: new Date(json.createdAt),
+    };
+  }
+
+  const json: IEntityJSON = {
+    id: 1,
+    name: "root",
+    children: [
+      {
+        id: 2,
+        name: "child",
+        children: [],
+        createdAt: "2020-01-01T00:00:00.000Z",
+      },
+    ],
+    createdAt: "2020-01-01T00:00:00.000Z",
+  };
+  const entity = fromJSON(json);
+
+  assert.deepEquals(entity, {
+    id: 1,
+    name: "root",
+    children: [
+      {
+        id: 2,
+        name: "child",
+        children: [],
+        createdAt: new Date("2020-01-01T00:00:00.000Z"),
+      },
+    ],
+    createdAt: new Date("2020-01-01T00:00:00.000Z"),
+  });
   assert.end();
 });

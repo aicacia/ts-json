@@ -1,6 +1,26 @@
-export type IJSON = null | number | string | boolean | IJSONArray | IJSONObject;
+export type IJSON = IJSONValue | IJSONArray | IJSONObject;
+export type IJSONValue = null | number | string | boolean;
 export type IJSONArray = IJSON[];
 export type IJSONObject = { [key: string]: IJSON };
+
+export interface IObjectWithToJSON {
+  toJSON(): IJSON;
+}
+
+export type IAsJSONValue<T> = T extends IJSONValue ? T : string;
+export type IAsJSONArray<T extends Array<any>> = IAsJSONValue<
+  IAsJSON<T extends Array<infer U> ? U : never>
+>[];
+export type IAsJSONObject<T extends { [key: string]: any }> = {
+  [K in keyof T]: IAsJSON<T[K]>;
+};
+export type IAsJSON<T> = T extends IObjectWithToJSON
+  ? string
+  : T extends { [key: string]: any }
+  ? IAsJSONObject<T>
+  : T extends Array<any>
+  ? IAsJSONArray<T>
+  : IAsJSONValue<T>;
 
 export function isJSON(value: any): value is IJSON {
   const type = typeof value;
