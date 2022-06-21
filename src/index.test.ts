@@ -56,17 +56,24 @@ tape("as json", (assert: tape.Test) => {
     name: string;
     children: Entity[];
     createdAt: Date;
+
+    constructor(id: number, name: string, children: Entity[], createdAt: Date) {
+      this.id = id;
+      this.name = name;
+      this.children = children;
+      this.createdAt = createdAt;
+    }
   }
 
   type IEntityJSON = IAsJSON<Entity>;
 
   function fromJSON(json: IEntityJSON): Entity {
-    return {
-      id: json.id,
-      name: json.name,
-      children: json.children.map(fromJSON),
-      createdAt: new Date(json.createdAt),
-    };
+    return new Entity(
+      json.id,
+      json.name,
+      json.children.map((child) => fromJSON(child)),
+      new Date(json.createdAt)
+    );
   }
 
   const json: IEntityJSON = {
@@ -84,18 +91,14 @@ tape("as json", (assert: tape.Test) => {
   };
   const entity = fromJSON(json);
 
-  assert.deepEquals(entity, {
-    id: 1,
-    name: "root",
-    children: [
-      {
-        id: 2,
-        name: "child",
-        children: [],
-        createdAt: new Date("2020-01-01T00:00:00.000Z"),
-      },
-    ],
-    createdAt: new Date("2020-01-01T00:00:00.000Z"),
-  });
+  assert.deepEquals(
+    entity,
+    new Entity(
+      1,
+      "root",
+      [new Entity(2, "child", [], new Date("2020-01-01T00:00:00.000Z"))],
+      new Date("2020-01-01T00:00:00.000Z")
+    )
+  );
   assert.end();
 });
