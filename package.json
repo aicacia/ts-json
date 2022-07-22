@@ -1,10 +1,10 @@
 {
   "name": "@aicacia/json",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "JSON types and helper functions",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/aicacia/libs/ts-json.git"
+    "url": "https://github.com/aicacia/ts-json.git"
   },
   "module": "esm/index.js",
   "main": "cjs/index.js",
