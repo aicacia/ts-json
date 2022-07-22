@@ -54,12 +54,20 @@ tape("as json", (assert: tape.Test) => {
   class Entity {
     id: number;
     name: string;
+    age?: number;
     children: Entity[];
     createdAt: Date;
 
-    constructor(id: number, name: string, children: Entity[], createdAt: Date) {
+    constructor(
+      id: number,
+      name: string,
+      age: number | undefined,
+      children: Entity[],
+      createdAt: Date
+    ) {
       this.id = id;
       this.name = name;
+      this.age = age;
       this.children = children;
       this.createdAt = createdAt;
     }
@@ -71,6 +79,7 @@ tape("as json", (assert: tape.Test) => {
     return new Entity(
       json.id,
       json.name,
+      json.age,
       json.children.map((child) => fromJSON(child)),
       new Date(json.createdAt)
     );
@@ -83,6 +92,7 @@ tape("as json", (assert: tape.Test) => {
       {
         id: 2,
         name: "child",
+        age: 1,
         children: [],
         createdAt: "2020-01-01T00:00:00.000Z",
       },
@@ -96,7 +106,8 @@ tape("as json", (assert: tape.Test) => {
     new Entity(
       1,
       "root",
-      [new Entity(2, "child", [], new Date("2020-01-01T00:00:00.000Z"))],
+      undefined,
+      [new Entity(2, "child", 1, [], new Date("2020-01-01T00:00:00.000Z"))],
       new Date("2020-01-01T00:00:00.000Z")
     )
   );

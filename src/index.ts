@@ -7,7 +7,11 @@ export interface IObjectWithToJSON {
   toJSON(): IJSON;
 }
 
-export type IAsJSONValue<T> = T extends IJSONValue ? T : string;
+export type IAsJSONValue<T> = T extends undefined
+  ? undefined
+  : T extends IJSONValue
+  ? T
+  : string;
 export type IAsJSONArray<T extends Array<any>> = IAsJSONValue<
   IAsJSON<T extends Array<infer U> ? U : never>
 >[];
