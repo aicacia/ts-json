@@ -20,6 +20,10 @@ export type IAsJSONObject<T extends { [key: string]: any }> = {
 };
 export type IAsJSON<T> = T extends IObjectWithToJSON
   ? string
+  : T extends Set<infer U>
+  ? IAsJSON<U>[]
+  : T extends Map<infer K, infer U>
+  ? { [key: string]: IAsJSON<U> }
   : T extends { [key: string]: any }
   ? IAsJSONObject<T>
   : T extends Array<any>

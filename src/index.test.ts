@@ -55,20 +55,26 @@ tape("as json", (assert: tape.Test) => {
     id: number;
     name: string;
     age?: number;
-    children: Entity[];
+    childMap: Map<number, Entity>;
+    childSet: Set<Entity>;
+    childArray: Array<Entity>;
     createdAt: Date;
 
     constructor(
       id: number,
       name: string,
       age: number | undefined,
-      children: Entity[],
+      childMap: Map<number, Entity>,
+      childSet: Set<Entity>,
+      childArray: Array<Entity>,
       createdAt: Date
     ) {
       this.id = id;
       this.name = name;
       this.age = age;
-      this.children = children;
+      this.childMap = childMap;
+      this.childSet = childSet;
+      this.childArray = childArray;
       this.createdAt = createdAt;
     }
   }
@@ -80,7 +86,12 @@ tape("as json", (assert: tape.Test) => {
       json.id,
       json.name,
       json.age,
-      json.children.map((child) => fromJSON(child)),
+      Object.entries(json.childMap).reduce((acc, [id, child]) => {
+        acc.set(+id, fromJSON(child));
+        return acc;
+      }, new Map()),
+      new Set(json.childSet.map((child) => fromJSON(child))),
+      json.childArray.map((child) => fromJSON(child)),
       new Date(json.createdAt)
     );
   }
@@ -88,12 +99,36 @@ tape("as json", (assert: tape.Test) => {
   const json: IEntityJSON = {
     id: 1,
     name: "root",
-    children: [
+    childMap: {
+      2: {
+        id: 2,
+        name: "child",
+        age: 1,
+        childMap: {},
+        childSet: [],
+        childArray: [],
+        createdAt: "2020-01-01T00:00:00.000Z",
+      },
+    },
+    childArray: [
       {
         id: 2,
         name: "child",
         age: 1,
-        children: [],
+        childMap: {},
+        childSet: [],
+        childArray: [],
+        createdAt: "2020-01-01T00:00:00.000Z",
+      },
+    ],
+    childSet: [
+      {
+        id: 2,
+        name: "child",
+        age: 1,
+        childMap: {},
+        childSet: [],
+        childArray: [],
         createdAt: "2020-01-01T00:00:00.000Z",
       },
     ],
@@ -107,7 +142,42 @@ tape("as json", (assert: tape.Test) => {
       1,
       "root",
       undefined,
-      [new Entity(2, "child", 1, [], new Date("2020-01-01T00:00:00.000Z"))],
+      new Map([
+        [
+          2,
+          new Entity(
+            2,
+            "child",
+            1,
+            new Map(),
+            new Set(),
+            [],
+            new Date("2020-01-01T00:00:00.000Z")
+          ),
+        ],
+      ]),
+      new Set([
+        new Entity(
+          2,
+          "child",
+          1,
+          new Map(),
+          new Set(),
+          [],
+          new Date("2020-01-01T00:00:00.000Z")
+        ),
+      ]),
+      [
+        new Entity(
+          2,
+          "child",
+          1,
+          new Map(),
+          new Set(),
+          [],
+          new Date("2020-01-01T00:00:00.000Z")
+        ),
+      ],
       new Date("2020-01-01T00:00:00.000Z")
     )
   );
